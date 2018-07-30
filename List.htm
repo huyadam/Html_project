@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+table, th, td {
+    border: 1px solid black;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h2>List of Device</h2>
+<p>Danh sách thiết bị</p>
+
+<table style="width:100%">
+  <tr>
+    <th>Tên</th>
+    <th>Địa chỉ IP</th> 
+    <th>Điều khiển</th>
+    <th>Trạng thái</th> 
+    <th>Xoá</th>
+  </tr>
+  <tr>
+    <td>Chú Hà</td>
+    <td>14.13.12.11</td>
+	<td><button type="button" onclick="document.getElementById('demo0').className = 'fa fa-toggle-on'">Bật</button>
+	    <button type="button" onclick="document.getElementById('demo0').className = 'fa fa-toggle-off'">Tắt</button></td>
+	<td id='demo0'></td>
+    <td><button><i class="fa fa-trash-o" style="font-size:36px"></i></button></td>
+  </tr>
+  <tr>
+    <td>Cô Diễm</td>
+    <td>11.12.13.14</td>
+	<td><button type="button" onclick="document.getElementById('demo1').className = 'fa fa-toggle-on'">Bật</button>
+	    <button type="button" onclick="document.getElementById('demo1').className = 'fa fa-toggle-off'">Tắt</button></td>
+	<td id='demo1'></td>
+    <td><button><i class="fa fa-trash-o" style="font-size:36px"></i></button></td>
+  </tr>
+  <tr>
+    <td>Mợ Dung</td>
+    <td>13.12.11.14</td>
+	<td><button type="button" onclick="document.getElementById('demo2').className = 'fa fa-toggle-on'">Bật</button>
+	    <button type="button" onclick="document.getElementById('demo2').className = 'fa fa-toggle-off'">Tắt</button></td>
+	<td id='demo2'></td>
+    <td><button><i class="fa fa-trash-o" style="font-size:36px"></i></button></td>
+  </tr>
+</table>
+
+</body>
+</html>

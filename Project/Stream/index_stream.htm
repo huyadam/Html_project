@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<style>
+			.row1{
+				display:flex;
+				flex-direction:row;
+			justify-content: space-around;
+			}
+			.row2{
+				display:flex;
+				flex-direction:row;
+			justify-content: space-around;
+			}
+			.row3{
+				display:flex;
+				flex-direction:row;
+			justify-content: space-around;
+			}
+			.column1{
+				display:flex;
+				flex-direction:column;
+			   
+			}
+			.column2{
+				display:flex;
+				flex-direction:column;
+			}
+			.column3{
+				display:flex;
+				flex-direction:column;
+			   
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="title" align="center">Make your own camera!!!</h1>
+		<div class="row1">
+			<div class="column1">
+				Host:<br>
+				<input type="text" id="host1" value="192.168.100.20">
+				Port:<br>
+				<input type="text" id="port1" value="10000">
+				<input type="button" value="Stream" onclick="streamon('1')">
+				<input type="button" value="Not Stream" onclick="minimize('1')"><br>
+				<p id="status1"></p><br>
+				<script src="jsmpeg.min.js"></script>
+				<div id="stream1"><canvas id="stream11"></canvas></div>
+			</div>
+
+			<div class="column2">
+				Host:<br>
+				<input type="text" id="host2" value="192.168.100.20">
+				Port:<br>
+				<input type="text" id="port2" value="10000">
+				<input type="button" value="Stream" onclick="streamon('2')">
+				<input type="button" value="Not Stream" onclick="minimize('2')">
+				<p id="status2"></p><br>
+				<div id="stream2"><canvas id="stream22"></canvas></div>
+			</div>
+
+			<div class="column3">
+				Host:<br>
+				<input type="text" id="host3" value="192.168.100.20">
+				Port:<br>
+				<input type="text" id="port3" value="10000">
+				<input type="button" value="Stream" onclick="streamon('3')">
+				<input type="button" value="Not Stream" onclick="minimize('3')">
+				<p id="status3"></p><br>
+				<div id="stream3"><canvas id="stream33"></canvas></div>
+			</div>
+		</div><br>
+		
+		<div class="row2">
+			<div class="column1">
+				Host:<br>
+				<input type="text" id="host4" value="192.168.100.20">
+				Port:<br>
+				<input type="text" id="port4" value="10000">
+				<input type="button" value="Stream" onclick="streamon('4')">
+				<input type="button" value="Not Stream" onclick="minimize('4')">
+				<p id="status4"></p><br>
+				<div id="stream4"><canvas id="stream44"></canvas></div>
+			</div>
+
+			<div class="column2">
+				Host:<br>
+				<input type="text" id="host5" value="192.168.100.20">
+				Port:<br>
+				<input type="text" id="port5" value="10000">
+				<input type="button" value="Stream" onclick="streamon('5')">
+				<input type="button" value="Not Stream" onclick="minimize('5')">
+				<p id="status5"></p><br>
+				<div id="stream5"><canvas id="stream55"></canvas></div>
+			</div>
+
+			<div class="column3">
+				Host:<br>
+				<input type="text" id="host6" value="192.168.100.20">
+				Port:<br>
+				<input type="text" id="port6" value="10000">
+				<input type="button" value="Stream" onclick="streamon('6')">
+				<input type="button" value="Not Stream" onclick="minimize('6')">
+				<p id="status6"></p><br>
+				<div id="stream6"><canvas id="stream66"></canvas></div>
+			</div>
+		</div><br>
+
+		<div class="row3">
+			<div class="column1">
+				Host:<br>
+				<input type="text" id="host7" value="192.168.100.20">
+				Port:<br>
+				<input type="text" id="port7" value="10000">
+				<input type="button" value="Stream" onclick="streamon('7')">
+				<input type="button" value="Not Stream" onclick="minimize('7')">
+				<p id="status7"></p><br>
+				<div id="stream7"><canvas id="stream77"></canvas></div>
+			</div>
+
+			<div class="column2">
+				Host:<br>
+				<input type="text" id="host8" value="192.168.100.20">
+				Port:<br>
+				<input type="text" id="port8" value="10000">
+				<input type="button" value="Stream" onclick="streamon('8')">
+				<input type="button" value="Not Stream" onclick="minimize('8')">
+				<p id="status8"></p><br>
+				<div id="stream8"><canvas id="stream88"></canvas></div>
+			</div>
+
+			<div class="column3">
+				Host:<br>
+				<input type="text" id="host9" value="192.168.100.20">
+				Port:<br>
+				<input type="text" id="port9" value="10000">
+				<input type="button" value="Stream" onclick="streamon('9')">
+				<input type="button" value="Not Stream" onclick="minimize('9')">
+				<p id="status9"></p><br>
+				<div id="stream9"><canvas id="stream99"></canvas></div>
+			</div>
+		</div><br>
+
+		<script src="stream.js">
+		</script>
+	</body>
+</html>

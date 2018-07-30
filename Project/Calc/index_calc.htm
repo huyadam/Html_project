@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<body>
+
+		<h2>HTML Forms</h2>
+			Host:<br>
+			<input type="text" id="host" value="172.16.2.250"><br>
+			Port:<br>
+			<input type="text" id="port" value="81"><br><br>
+			<input type="button" value="Connect" onclick="connect()"><br>
+			<p id="status"></p><br><br>
+			Number 1:<br>
+			<input type="number" id="num1" value="0"><br>
+			Number 2:<br>
+			<input type="number" id="num2" value="0"><br><br>
+			<input type="button" value="+" onclick="action('add')">
+			<input type="button" value="-" onclick="action('sub')">
+			<input type="button" value="*" onclick="action('mux')">
+			<input type="button" value="/" onclick="action('div')">
+		<h3 id="result"></h3>
+		<script src="calc.js">
+		</script>
+	</body>
+</html>
