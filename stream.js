@@ -44,16 +44,16 @@ function streamon(num){
 	stream[a].appendChild(canvas);
 	url[a] = "ws://" + host[a].value + ":" + port[a].value;
 	player[a] = new JSMpeg.Player(url[a], {canvas: canvas});
-	canvas.style.display = "initial";
-	stream[a].style.display = "initial";
+	//canvas.style.display = "initial";
+	//stream[a].style.display = "initial";
 	console.log("Pushed");
 }
-function minimize(num){
+function streamoff(num){
 	a = parseInt(num)-1;
 	if (check_delete[a]==false) {
 		player[a].destroy();
 		document.getElementById(nameofstream[a]).remove();
 		check_delete[a] = true;
-		stream[a].style.display = "none";
+		//stream[a].style.display = "none";
 	}
 }
