@@ -1,230 +1,93 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script> 
-			$(document).ready(function(){
-				$("#stream_but1").click(function(){
-					$("#stream1").slideDown(500);
-				});
-				$("#stream_but2").click(function(){
-					$("#stream2").slideDown(500);
-				});
-				$("#stream_but3").click(function(){
-					$("#stream3").slideDown(500);
-				});
-				$("#stream_but4").click(function(){
-					$("#stream4").slideDown(500);
-				});
-				$("#stream_but5").click(function(){
-					$("#stream5").slideDown(500);
-				});
-				$("#stream_but6").click(function(){
-					$("#stream6").slideDown(500);
-				});
-				$("#stream_but7").click(function(){
-					$("#stream7").slideDown(500);
-				});
-				$("#stream_but8").click(function(){
-					$("#stream8").slideDown(500);
-				});
-				$("#stream_but9").click(function(){
-					$("#stream9").slideDown(500);
-				});
-				$("#notstream_but1").click(function(){
-					$("#stream1").slideUp(500);
-				});
-				$("#notstream_but2").click(function(){
-					$("#stream2").slideUp(500);
-				});
-				$("#notstream_but3").click(function(){
-					$("#stream3").slideUp(500);
-				});
-				$("#notstream_but4").click(function(){
-					$("#stream4").slideUp(500);
-				});
-				$("#notstream_but5").click(function(){
-					$("#stream5").slideUp(500);
-				});
-				$("#notstream_but6").click(function(){
-					$("#stream6").slideUp(500);
-				});
-				$("#notstream_but7").click(function(){
-					$("#stream7").slideUp(500);
-				});
-				$("#notstream_but8").click(function(){
-					$("#stream8").slideUp(500);
-				});
-				$("#notstream_but9").click(function(){
-					$("#stream9").slideUp(500);
-				});
-			});
-		</script>
-		<script>
-			$(document).ready(function(){
-				$(".row1").children().css({"color": "black", "padding": "10px", "border-radius": "10px", "border": "2px solid Olive"});
-				$(".row2").children().css({"color": "black", "padding": "10px", "border-radius": "10px", "border": "2px solid Olive"});
-				$(".row3").children().css({"color": "black", "padding": "10px", "border-radius": "10px", "border": "2px solid Olive"});
-			});
-		</script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<style>
-			/* unvisited link */
-			.but:link {
-				background-color: AliceBlue;
-			}
-			/* visited link */
-			.but:visited {
-				background-color: Aquamarine;
-			}
-			/* mouse over link */
-			.but:hover {
-				background-color: MintCream;
-			}
-
-			/* selected link */
-			.but:active {
-				background-color: FloralWhite;
-			}
-			.row1{
-				display:flex;
-				flex-direction:row;
-			justify-content: space-around;
-			}
-			.row2{
-				display:flex;
-				flex-direction:row;
-			justify-content: space-around;
-			}
-			.row3{
-				display:flex;
-				flex-direction:row;
-			justify-content: space-around;
-			}
-			.column1{
-				display:flex;
-				flex-direction:column;
-			   
-			}
-			.column2{
-				display:flex;
-				flex-direction:column;
-			}
-			.column3{
-				display:flex;
-				flex-direction:column;
-			   
+			table, th, td {
+				border: 1px solid black;
+				text-align: center;
 			}
 		</style>
 	</head>
 	<body>
-		<h1 id="title" align="center">Make your own camera!!!</h1>
-		<div class="row1">
-			<div class="column1">
-				Host:<br>
-				<input type="text" id="host1" value="192.168.100.20">
-				Port:<br>
-				<input type="text" id="port1" value="10000">
-				<input id="stream_but1" class="but" type="button" value="Stream" onclick="streamon('1')">
-				<input id="notstream_but1" class="but" type="button" value="Not Stream" onclick="setTimeout(function() { streamoff('1'); }, 500);"><br>
-				<p id="status1"></p><br>
-				<script src="jsmpeg.min.js"></script>
-				<div id="stream1"><canvas id="stream11"></canvas></div>
-			</div>
 
-			<div class="column2">
-				Host:<br>
-				<input type="text" id="host2" value="192.168.100.20">
-				Port:<br>
-				<input type="text" id="port2" value="10000">
-				<input id="stream_but2" class="but" type="button" value="Stream" onclick="streamon('2')">
-				<input id="notstream_but2" class="but" type="button" value="Not Stream" onclick="setTimeout(function() { streamoff('2'); }, 500);">
-				<p id="status2"></p><br>
-				<div id="stream2"><canvas id="stream22"></canvas></div>
-			</div>
-
-			<div class="column3">
-				Host:<br>
-				<input type="text" id="host3" value="192.168.100.20">
-				Port:<br>
-				<input type="text" id="port3" value="10000">
-				<input id="stream_but3" class="but" type="button" value="Stream" onclick="streamon('3')">
-				<input id="notstream_but3" class="but" type="button" value="Not Stream" onclick="setTimeout(function() { streamoff('3'); }, 500);">
-				<p id="status3"></p><br>
-				<div id="stream3"><canvas id="stream33"></canvas></div>
-			</div>
-		</div><br>
+		<h2>HTML Forms</h2>
+		Host:<br>
+		<input type="text" id="host" value="192.168.100.10"><br>
+		Port:<br>
+		<input type="text" id="port" value="8888"><br><br>
+		<input type="button" value="Connect" onclick="connect()"><br>
+		<p id="status"></p>
 		
-		<div class="row2">
-			<div class="column1">
-				Host:<br>
-				<input type="text" id="host4" value="192.168.100.20">
-				Port:<br>
-				<input type="text" id="port4" value="10000">
-				<input id="stream_but4" class="but" type="button" value="Stream" onclick="streamon('4')">
-				<input id="notstream_but4" class="but" type="button" value="Not Stream" onclick="setTimeout(function() { streamoff('4'); }, 500);">
-				<p id="status4"></p><br>
-				<div id="stream4"><canvas id="stream44"></canvas></div>
-			</div>
+		<input type="button" value="Infor" onclick="infor()"><br>
 
-			<div class="column2">
-				Host:<br>
-				<input type="text" id="host5" value="192.168.100.20">
-				Port:<br>
-				<input type="text" id="port5" value="10000">
-				<input id="stream_but5" class="but" type="button" value="Stream" onclick="streamon('5')">
-				<input id="notstream_but5" class="but" type="button" value="Not Stream" onclick="setTimeout(function() { streamoff('5'); }, 500);">
-				<p id="status5"></p><br>
-				<div id="stream5"><canvas id="stream55"></canvas></div>
-			</div>
+		<h2>List of Device</h2>
 
-			<div class="column3">
-				Host:<br>
-				<input type="text" id="host6" value="192.168.100.20">
-				Port:<br>
-				<input type="text" id="port6" value="10000">
-				<input id="stream_but6" class="but" type="button" value="Stream" onclick="streamon('6')">
-				<input id="notstream_but6" class="but" type="button" value="Not Stream" onclick="setTimeout(function() { streamoff('6'); }, 500);">
-				<p id="status6"></p><br>
-				<div id="stream6"><canvas id="stream66"></canvas></div>
-			</div>
-		</div><br>
+		<table style="width:100%">
+		  <tr>
+			<th>SN</th>
+			<th>Device</th> 
+			<th>Monitor</th>
+			<th>Control</th> 
+			<th>State</th>
+			<th>Cmt</th>
+		  </tr>
+		  <tr>
+			<td id='sn0'>45ba78ab</td>
+			<td id='device0'>1</td>
+			<td><button type="button" onclick="monitor(getText('sn0'),getText('device0'))">Check</button></td>
+			<td><button type="button" onclick="ctrl('on',getText('sn0'),getText('device0'))">Bật</button>
+				<button type="button" onclick="ctrl('off',getText('sn0'),getText('device0'))">Tắt</button></td>
+			<td id='state0'></td>
+			<td id='cmt0'></td>
+		  </tr>
+		  <tr>
+			<td id='sn1'>45ba78ab</td>
+			<td id='device1'>2</td>
+			<td><button type="button" onclick="monitor(getText('sn1'),getText('device1'))">Check</button></td>
+			<td><button type="button" onclick="ctrl('on',getText('sn1'),getText('device1'))">Bật</button>
+				<button type="button" onclick="ctrl('off',getText('sn1'),getText('device1'))">Tắt</button></td>
+			<td id='state1'></td>
+			<td id='cmt1'></td>
+		  </tr>
+		  <tr>
+			<td id='sn2'>45ba78ab</td>
+			<td id='device2'>3</td>
+			<td><button type="button" onclick="monitor(getText('sn2'),getText('device2'))">Check</button></td>
+			<td><button type="button" onclick="ctrl('on',getText('sn2'),getText('device2'))">Bật</button>
+				<button type="button" onclick="ctrl('off',getText('sn2'),getText('device2'))">Tắt</button></td>
+			<td id='state2'></td>
+			<td id='cmt2'></td>
+		  </tr>
+		  <tr>
+			<td id='sn3'>45ba78ab</td>
+			<td id='device3'>4</td>
+			<td><button type="button" onclick="monitor(getText('sn3'),getText('device3'))">Check</button></td>
+			<td><button type="button" onclick="ctrl('on',getText('sn3'),getText('device3'))">Bật</button>
+				<button type="button" onclick="ctrl('off',getText('sn3'),getText('device3'))">Tắt</button></td>
+			<td id='state3'></td>
+			<td id='cmt3'></td>
+		  </tr>
+		  <tr>
+			<td id='sn4'>45ba78ab</td>
+			<td id='device4'>5</td>
+			<td><button type="button" onclick="monitor(getText('sn4'),getText('device4'))">Check</button></td>
+			<td><button type="button" onclick="ctrl('on',getText('sn4'),getText('device4'))">Bật</button>
+				<button type="button" onclick="ctrl('off',getText('sn4'),getText('device4'))">Tắt</button></td>
+			<td id='state4'></td>
+			<td id='cmt4'></td>
+		  </tr>
+		</table><br>
 
-		<div class="row3">
-			<div class="column1">
-				Host:<br>
-				<input type="text" id="host7" value="192.168.100.20">
-				Port:<br>
-				<input type="text" id="port7" value="10000">
-				<input id="stream_but7" class="but" type="button" value="Stream" onclick="streamon('7')">
-				<input id="notstream_but7" class="but" type="button" value="Not Stream" onclick="setTimeout(function() { streamoff('7'); }, 500);">
-				<p id="status7"></p><br>
-				<div id="stream7"><canvas id="stream77"></canvas></div>
-			</div>
-
-			<div class="column2">
-				Host:<br>
-				<input type="text" id="host8" value="192.168.100.20">
-				Port:<br>
-				<input type="text" id="port8" value="10000">
-				<input id="stream_but8" class="but" type="button" value="Stream" onclick="streamon('8')">
-				<input id="notstream_but8" class="but" type="button" value="Not Stream" onclick="setTimeout(function() { streamoff('8'); }, 500);">
-				<p id="status8"></p><br>
-				<div id="stream8"><canvas id="stream88"></canvas></div>
-			</div>
-
-			<div class="column3">
-				Host:<br>
-				<input type="text" id="host9" value="192.168.100.20">
-				Port:<br>
-				<input type="text" id="port9" value="10000">
-				<input id="stream_but9" class="but" type="button" value="Stream" onclick="streamon('9')">
-				<input id="notstream_but9" class="but" type="button" value="Not Stream" onclick="setTimeout(function() { streamoff('9'); }, 500);">
-				<p id="status9"></p><br>
-				<div id="stream9"><canvas id="stream99"></canvas></div>
-			</div>
-		</div><br>
-
-		<script src="stream.js">
+			SN:<br>
+			<input type="text" id="snn" value="45ba78ab"><br>
+			Device:<br>
+			<input type="number" id="devicee" value="1"><br><br>
+			<input type="button" value="Monitor" onclick="monitor(document.getElementById('snn').value,document.getElementById('devicee').value)">
+			<input type="button" value="On" onclick="ctrl('on',document.getElementById('snn').value,document.getElementById('devicee').value)">
+			<input type="button" value="Off" onclick="ctrl('off',document.getElementById('snn').value,document.getElementById('devicee').value)">
+		<h3 id="result"></h3>
+		<script src="esp_monitor.js">
 		</script>
 	</body>
 </html>
