@@ -9,83 +9,16 @@
 			}
 		</style>
 	</head>
+	
 	<body>
-
-		<h2>HTML Forms</h2>
-		Host:<br>
-		<input type="text" id="host" value="192.168.100.10"><br>
-		Port:<br>
-		<input type="text" id="port" value="8888"><br><br>
-		<input type="button" value="Connect" onclick="connect()"><br>
-		<p id="status"></p>
 		
-		<input type="button" value="Infor" onclick="infor()"><br>
-
-		<h2>List of Device</h2>
-
-		<table style="width:100%">
-		  <tr>
-			<th>SN</th>
-			<th>Device</th> 
-			<th>Monitor</th>
-			<th>Control</th> 
-			<th>State</th>
-			<th>Cmt</th>
-		  </tr>
-		  <tr>
-			<td id='sn0'>45ba78ab</td>
-			<td id='device0'>1</td>
-			<td><button type="button" onclick="monitor(getText('sn0'),getText('device0'))">Check</button></td>
-			<td><button type="button" onclick="ctrl('on',getText('sn0'),getText('device0'))">Bật</button>
-				<button type="button" onclick="ctrl('off',getText('sn0'),getText('device0'))">Tắt</button></td>
-			<td id='state0'></td>
-			<td id='cmt0'></td>
-		  </tr>
-		  <tr>
-			<td id='sn1'>45ba78ab</td>
-			<td id='device1'>2</td>
-			<td><button type="button" onclick="monitor(getText('sn1'),getText('device1'))">Check</button></td>
-			<td><button type="button" onclick="ctrl('on',getText('sn1'),getText('device1'))">Bật</button>
-				<button type="button" onclick="ctrl('off',getText('sn1'),getText('device1'))">Tắt</button></td>
-			<td id='state1'></td>
-			<td id='cmt1'></td>
-		  </tr>
-		  <tr>
-			<td id='sn2'>45ba78ab</td>
-			<td id='device2'>3</td>
-			<td><button type="button" onclick="monitor(getText('sn2'),getText('device2'))">Check</button></td>
-			<td><button type="button" onclick="ctrl('on',getText('sn2'),getText('device2'))">Bật</button>
-				<button type="button" onclick="ctrl('off',getText('sn2'),getText('device2'))">Tắt</button></td>
-			<td id='state2'></td>
-			<td id='cmt2'></td>
-		  </tr>
-		  <tr>
-			<td id='sn3'>45ba78ab</td>
-			<td id='device3'>4</td>
-			<td><button type="button" onclick="monitor(getText('sn3'),getText('device3'))">Check</button></td>
-			<td><button type="button" onclick="ctrl('on',getText('sn3'),getText('device3'))">Bật</button>
-				<button type="button" onclick="ctrl('off',getText('sn3'),getText('device3'))">Tắt</button></td>
-			<td id='state3'></td>
-			<td id='cmt3'></td>
-		  </tr>
-		  <tr>
-			<td id='sn4'>45ba78ab</td>
-			<td id='device4'>5</td>
-			<td><button type="button" onclick="monitor(getText('sn4'),getText('device4'))">Check</button></td>
-			<td><button type="button" onclick="ctrl('on',getText('sn4'),getText('device4'))">Bật</button>
-				<button type="button" onclick="ctrl('off',getText('sn4'),getText('device4'))">Tắt</button></td>
-			<td id='state4'></td>
-			<td id='cmt4'></td>
-		  </tr>
-		</table><br>
-
-			SN:<br>
-			<input type="text" id="snn" value="45ba78ab"><br>
-			Device:<br>
-			<input type="number" id="devicee" value="1"><br><br>
-			<input type="button" value="Monitor" onclick="monitor(document.getElementById('snn').value,document.getElementById('devicee').value)">
-			<input type="button" value="On" onclick="ctrl('on',document.getElementById('snn').value,document.getElementById('devicee').value)">
-			<input type="button" value="Off" onclick="ctrl('off',document.getElementById('snn').value,document.getElementById('devicee').value)">
+		<h2>KDFilter Project</h2>
+		Host:<br>
+		<input type="text" id="host" value="cretatech.com"><br>
+		Port:<br>
+		<input type="text" id="port" value="8899"><br><br>
+		<input type="button" id="Connect_btn" value="Connect" onclick="connect()"><br>
+		<p id="status"></p>
 		<h3 id="result"></h3>
 		<script src="esp_monitor.js">
 		</script>
