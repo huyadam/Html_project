@@ -37,7 +37,6 @@ function open(event){
 function message(event){
 	console.log(event.data);
 	var json_parse = JSON.parse(event.data);
-	result.innerText = json_parse.function;
 	switch (json_parse.function) {
 		case "monitor-ok":
 			for (var x=0;x<num_sn*5;x++) {
