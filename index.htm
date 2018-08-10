@@ -2,23 +2,43 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<style>
 			table, th, td {
-				border: 1px solid black;
 				text-align: center;
 			}
 		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#Connect_btn").click(function(){
+					setTimeout(function () {
+						$("#slide").slideDown();
+					}, 300);
+				});
+			});
+		</script>
 	</head>
 	
-	<body>
+	<body class="w3-dark-grey">
+		<div class="w3-container">
+			<h2>KDFilter Project</h2>
+			<form>
+				<div class="input-group">
+						<label for="host">Host</label><br>
+						<input type="text" class="form-control" placeholder="IP/Domain" id="host" value="cretatech.com"><br>
+						Port:<br>
+						<input type="text" class="form-control" placeholder="Port" id="port" value="8899"><br><br>
+						<input type="button" style="font-weight: bold;" class="w3-btn w3-ripple w3-red w3-bold w3-round-large" id="Connect_btn" value="Connect" onclick="connect()"><br><br>
+				</div>
+				<div id="slide" class="w3-container"></div>
+			</form>
+		</div>
 		
-		<h2>KDFilter Project</h2>
-		Host:<br>
-		<input type="text" id="host" value="cretatech.com"><br>
-		Port:<br>
-		<input type="text" id="port" value="8899"><br><br>
-		<input type="button" id="Connect_btn" value="Connect" onclick="connect()"><br><br>
+		
 		<script src="esp_monitor.js">
+			document.getElementById("stream1").style.display = "none";
 		</script>
 	</body>
 </html>

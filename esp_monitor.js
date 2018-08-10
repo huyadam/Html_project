@@ -8,6 +8,7 @@ var cmt = ["cmt1","cmt2","cmt3","cmt4","cmt5","cmt6","cmt7","cmt8","cmt9","cmt10
 var stt = ["stt1","stt2","stt3","stt4","stt5","stt6","stt7","stt8","stt9","stt10","stt11","stt12","stt13","stt14","stt15","stt16","stt17","stt18","stt19","stt20"];
 var sn = ["sn1","sn2","sn3","sn4","sn5","sn6","sn7","sn8","sn9","sn10","sn11","sn12","sn13","sn14","sn15","sn16","sn17","sn18","sn19","sn20"];
 var device = ["device1","device2","device3","device4","device5","device6","device7","device8","device9","device10","device11","device12","device13","device14","device15","device16","device17","device18","device19","device20"];
+var icon = ["icon1","icon2","icon3","icon4","icon5","icon6","icon7","icon8","icon9","icon10","icon11","icon12","icon13","icon14","icon15","icon16","icon17","icon18","icon19","icon20"];
 var d = ["d1","d2","d3","d4","d5"];
 var raw_data = {
 	function: "",
@@ -41,7 +42,8 @@ function message(event){
 		case "monitor-ok":
 			for (var x=0;x<num_sn*5;x++) {
 				if (Object.keys(json_parse.data)[0] == getText(sn[x])) {
-					document.getElementById(stt[x]).innerText = json_parse.data[getText(sn[x])][getdevice(x%5)];
+					if (json_parse.data[getText(sn[x])][getdevice(x%5)] == 'on')	document.getElementById(icon[x]).setAttribute('class','fa fa-check-square');
+					else document.getElementById(icon[x]).setAttribute('class','fa fa-square');
 					document.getElementById(cmt[x]).innerText = "DONE";
 				}
 			}
@@ -58,7 +60,9 @@ function message(event){
 			tableCreate(num_sn);
 			for (var x=0; x<num_sn*5; x++) {
 				document.getElementById(sn[x]).innerText=Object.keys(json_parse.data)[parseInt(x/5)];
-				document.getElementById(stt[x]).innerText=json_parse.data[getText(sn[x])][getdevice(x%5)];
+				if (json_parse.data[getText(sn[x])][getdevice(x%5)] == 'on')	document.getElementById(icon[x]).setAttribute('class','fa fa-check-square');
+				else document.getElementById(icon[x]).setAttribute('class','fa fa-square');
+				document.getElementById(cmt[x]).innerText = "DONE";
 			}
 			break;
 		default:
@@ -115,12 +119,16 @@ function tableCreate(a) {
 	body = document.getElementsByTagName("body")[0];
 	//body = document.getElementById("wrapped");
 	// create elements <table> and a <tbody>
+	slide_tbl = document.getElementById("slide");
 	tbl     = document.createElement("table");
+	tbl.setAttribute("class","w3-table w3-card-4 w3-hoverable w3-border w3-centered");
 	tbl.style="width:100%";
 	tblBody = document.createElement("tbody");
+	tblBody.setAttribute("class","w3-white");
 
 	// cells creation
-
+	var thr = document.createElement("thead");
+	thr.setAttribute("class","w3-black w3-large");
 	var row = document.createElement("tr");
 	var hd = document.createElement("th");   
 	hd.innerText = "SN";
@@ -140,7 +148,8 @@ function tableCreate(a) {
 	var hd = document.createElement("th");   
 	hd.innerText = "Cmt";
 	row.appendChild(hd);
-	tblBody.appendChild(row);
+	thr.appendChild(row);
+	tbl.appendChild(thr);
 	for (var j = 1; j <= 5*a; j++) {
 		// table row creation
 		row = document.createElement("tr");
@@ -161,22 +170,25 @@ function tableCreate(a) {
 
 		cell = document.createElement("td");   
 		monitor_btn = document.createElement('button');
+		monitor_btn.setAttribute("class","w3-btn w3-ripple w3-cyan");
 		monitor_btn.type = "button";
-		monitor_btn.id = j;
+		monitor_btn.id = j*100;
 		monitor_btn.innerText = "Check";
-		monitor_btn.setAttribute("onclick","monitor(getText(sn[this.id]))");
+		monitor_btn.setAttribute("onclick","monitor(getText(sn[this.id/100]))");
 		cell.appendChild(monitor_btn); 
 		row.appendChild(cell);
 
 		cell = document.createElement("td");  
 		on_btn = document.createElement('button');
 		off_btn = document.createElement('button');
+		on_btn.setAttribute("class","w3-btn w3-ripple w3-teal");
+		off_btn.setAttribute("class","w3-btn w3-ripple w3-teal");
 		on_btn.type = "button";
 		off_btn.type = "button";
 		on_btn.id = 2*(j-1);				//Kiem tra can than
 		off_btn.id = 2*(j-1/2);
 		on_btn.innerText = "ON";
-		off_btn.innerText = "OFF";			
+		off_btn.innerText = "OFF";	
 		on_btn.setAttribute("onclick","ctrl('on',getText(sn[this.id/2]),getText(device[this.id/2]))"); 
 		off_btn.setAttribute("onclick","ctrl('off',getText(sn[this.id/2-1/2]),getText(device[this.id/2-1/2]))");
 		cell.appendChild(on_btn); 
@@ -184,11 +196,16 @@ function tableCreate(a) {
 		row.appendChild(cell);
 
 		cell = document.createElement("td");   
-		cell.id = 'stt'+j;
+		iconx = document.createElement("i");   
+		iconx.setAttribute("class","fa fa-check-square");
+		cell.id = 'stt'+j.toString();
+		iconx.id = 'icon'+j.toString();
+		iconx.style = 'font-size:36px';
+		cell.appendChild(iconx);
 		row.appendChild(cell);
 
-		cell = document.createElement("td");   
-		cell.id = 'cmt'+j;
+		cell = document.createElement("td"); 
+		cell.id = 'cmt'+j.toString();
 		row.appendChild(cell);
 
 		//row added to end of table body
@@ -197,10 +214,13 @@ function tableCreate(a) {
 
 	// append the <tbody> inside the <table>
 	tbl.appendChild(tblBody);
+	slide_tbl.appendChild(tbl);
 	// put <table> in the <body>
-	body.appendChild(tbl);
+	body.appendChild(slide_tbl);
 	// tbl border attribute to 
 	tbl.setAttribute("border", "2");
+	slide_tbl.style.display = "none";
+
 }
 
 function wrap()	{
