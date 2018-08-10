@@ -128,7 +128,7 @@ function tableCreate(a) {
 
 	// cells creation
 	var thr = document.createElement("thead");
-	thr.setAttribute("class","w3-black w3-large");
+	thr.setAttribute("class","w3-teal w3-large");
 	var row = document.createElement("tr");
 	var hd = document.createElement("th");   
 	hd.innerText = "SN";
@@ -170,7 +170,7 @@ function tableCreate(a) {
 
 		cell = document.createElement("td");   
 		monitor_btn = document.createElement('button');
-		monitor_btn.setAttribute("class","w3-btn w3-ripple w3-cyan");
+		monitor_btn.setAttribute("class","w3-button w3-hover-light-grey w3-ripple w3-cyan");
 		monitor_btn.type = "button";
 		monitor_btn.id = j*100;
 		monitor_btn.innerText = "Check";
@@ -181,8 +181,8 @@ function tableCreate(a) {
 		cell = document.createElement("td");  
 		on_btn = document.createElement('button');
 		off_btn = document.createElement('button');
-		on_btn.setAttribute("class","w3-btn w3-ripple w3-teal");
-		off_btn.setAttribute("class","w3-btn w3-ripple w3-teal");
+		on_btn.setAttribute("class","w3-button w3-hover-light-grey w3-ripple w3-metro-dark-green");
+		off_btn.setAttribute("class","w3-button w3-hover-light-grey w3-ripple w3-metro-dark-green");
 		on_btn.type = "button";
 		off_btn.type = "button";
 		on_btn.id = 2*(j-1);				//Kiem tra can than
